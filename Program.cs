@@ -56,29 +56,47 @@ namespace Advanced_Assigment3
             // Console.WriteLine($"Key with the highest value:{MaxKey} Value: {MaxValue}");
             #endregion
             #region Q3
-            Hashtable ht = new Hashtable
-            {
-            { "key1", "sama" },
-            { "key6", "sama" },
-            { "key2", "habiba" },
-            { "key3", "zeiad" },
-            { "key4", "mohamed" }
-            };
-            Console.Write("Please Enter Target Value: ");
-            string targetvalue=Console.ReadLine();
+            //Hashtable ht = new Hashtable
+            //{
+            //{ "key1", "sama" },
+            //{ "key6", "sama" },
+            //{ "key2", "habiba" },
+            //{ "key3", "zeiad" },
+            //{ "key4", "mohamed" }
+            //};
+            //Console.Write("Please Enter Target Value: ");
+            //string targetvalue=Console.ReadLine();
 
-            bool found = false;
-            foreach (DictionaryEntry entry in ht) 
-            {
-                if ((string)entry.Value == targetvalue) 
+            //bool found = false;
+            //foreach (DictionaryEntry entry in ht) 
+            //{
+            //    if ((string)entry.Value == targetvalue) 
+            //    {
+            //        Console.WriteLine(entry.Key);
+            //        found = true;
+            //    }
+            //}
+            //if (!found) 
+            //{
+            //    Console.WriteLine("Key not Found");
+            //}
+            #endregion
+            #region Q4
+            string[] words = { "eat", "tea", "tan", "ate", "nat", "bat" };
+            var anagrams=new Dictionary<string,List <string>>();
+            foreach (string word in words)
+            { 
+                string sortedword=new string(word.OrderBy(x => x).ToArray());
+                if(!anagrams.ContainsKey(sortedword))
                 {
-                    Console.WriteLin(entry.Key);
-                    found = true;
+                    anagrams[sortedword] = new List<string>();
                 }
+                anagrams[sortedword].Add(word);
             }
-            if (!found) 
+            Console.WriteLine("Grouped Anagrams");
+            foreach (var anagram in anagrams.Values)
             {
-                Console.WriteLine("Key not Found");
+                Console.WriteLine($"[{string.Join(", ", anagram)}]");
             }
             #endregion
         }
