@@ -4,6 +4,17 @@ namespace Advanced_Assigment3
 {
     internal class Program
     {
+        static bool ContainsDuplicate(int[] arr)
+        {
+            HashSet<int> set = new HashSet<int>();
+            foreach (int i in arr)
+            {
+                if (set.Contains(i)) return true;
+                set.Add(i);
+            }
+            return false;
+        }
+
         static void Main(string[] args)
         {
             //Part02
@@ -82,22 +93,27 @@ namespace Advanced_Assigment3
             //}
             #endregion
             #region Q4
-            string[] words = { "eat", "tea", "tan", "ate", "nat", "bat" };
-            var anagrams=new Dictionary<string,List <string>>();
-            foreach (string word in words)
-            { 
-                string sortedword=new string(word.OrderBy(x => x).ToArray());
-                if(!anagrams.ContainsKey(sortedword))
-                {
-                    anagrams[sortedword] = new List<string>();
-                }
-                anagrams[sortedword].Add(word);
-            }
-            Console.WriteLine("Grouped Anagrams");
-            foreach (var anagram in anagrams.Values)
-            {
-                Console.WriteLine($"[{string.Join(", ", anagram)}]");
-            }
+            //string[] words = { "eat", "tea", "tan", "ate", "nat", "bat" };
+            //var anagrams=new Dictionary<string,List <string>>();
+            //foreach (string word in words)
+            //{ 
+            //    string sortedword=new string(word.OrderBy(x => x).ToArray());
+            //    if(!anagrams.ContainsKey(sortedword))
+            //    {
+            //        anagrams[sortedword] = new List<string>();
+            //    }
+            //    anagrams[sortedword].Add(word);
+            //}
+            //Console.WriteLine("Grouped Anagrams");
+            //foreach (var anagram in anagrams.Values)
+            //{
+            //    Console.WriteLine($"[{string.Join(", ", anagram)}]");
+            //}
+            #endregion
+            #region Q5
+            int[] numbers = { 1, 3, 4, 3, 2, 5 };
+            bool hashdup= ContainsDuplicate(numbers);
+            Console.WriteLine(hashdup?"Array Contains Duplicates":"Array has only unique elments");
             #endregion
         }
     }
