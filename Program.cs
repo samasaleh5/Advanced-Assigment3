@@ -248,19 +248,34 @@ namespace Advanced_Assigment3
             // }
             #endregion
             #region Q10
-            Hashtable orginalhashtable = new Hashtable()
-        {
-            {"a",1 },
-            {"b",2},
-            {"c",3},
-            {"d",4},
-            {"e",5}
-        };
-            Hashtable swappedhashtable = SwapKeysAndValues(orginalhashtable);
-            Console.WriteLine("Swapped Hashtable:");
-            foreach (DictionaryEntry entry in swappedhashtable)
+            //    Hashtable orginalhashtable = new Hashtable()
+            //{
+            //    {"a",1 },
+            //    {"b",2},
+            //    {"c",3},
+            //    {"d",4},
+            //    {"e",5}
+            //};
+            //    Hashtable swappedhashtable = SwapKeysAndValues(orginalhashtable);
+            //    Console.WriteLine("Swapped Hashtable:");
+            //    foreach (DictionaryEntry entry in swappedhashtable)
+            //    {
+            //        Console.WriteLine($"Key: {entry.Key}, Value: {entry.Value}");
+            //    }
+            #endregion
+            #region Q11
+            HashSet<int> set1 = new HashSet<int> { 1, 2, 3, 4 };
+            HashSet<int> set2 = new HashSet<int> { 3, 4, 5, 6 };
+
+            
+            HashSet<int> unionSet = new HashSet<int>(set1);
+            unionSet.UnionWith(set2);
+
+           
+            Console.WriteLine("Union of the two sets:");
+            foreach (var item in unionSet)
             {
-                Console.WriteLine($"Key: {entry.Key}, Value: {entry.Value}");
+                Console.WriteLine(item);
             }
             #endregion
         }
