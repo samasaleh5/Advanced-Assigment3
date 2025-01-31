@@ -210,13 +210,26 @@ namespace Advanced_Assigment3
 
             #endregion
             #region Q8
-            int N = 10;  
-            int[] array = { 1, 2, 4, 6, 7, 8, 10 };  
+            //int N = 10;  
+            //int[] array = { 1, 2, 4, 6, 7, 8, 10 };  
 
-            List<int> missingNumbers = FindMissingNumbers(array, N);
+            //List<int> missingNumbers = FindMissingNumbers(array, N);
 
-            Console.WriteLine("Missing numbers:");
-            foreach (var num in missingNumbers)
+            //Console.WriteLine("Missing numbers:");
+            //foreach (var num in missingNumbers)
+            //{
+            //    Console.WriteLine(num);
+            //}
+            #endregion
+            #region Q9
+            List<int> numbers = new List<int> { 1, 2, 3, 3, 4, 5, 1, 6, 2, 7 };
+
+            
+            HashSet<int> uniqueNumbers = new HashSet<int>(numbers);
+
+         
+            Console.WriteLine("Unique values:");
+            foreach (var num in uniqueNumbers)
             {
                 Console.WriteLine(num);
             }
