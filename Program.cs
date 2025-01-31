@@ -4,6 +4,7 @@ namespace Advanced_Assigment3
 {
     internal class Program
     {
+        #region ContainsDuplicateFunction
         static bool ContainsDuplicate(int[] arr)
         {
             HashSet<int> set = new HashSet<int>();
@@ -14,7 +15,16 @@ namespace Advanced_Assigment3
             }
             return false;
         }
-
+        #endregion
+        #region DisplaySTUFinction
+        static void DisplayStudents(SortedDictionary<int, string> students)
+        {
+            foreach (var student in students)
+            {
+                Console.WriteLine($"ID: {student.Key}, Name: {student.Value}");
+            }
+        }
+        #endregion
         static void Main(string[] args)
         {
             //Part02
@@ -111,9 +121,35 @@ namespace Advanced_Assigment3
             //}
             #endregion
             #region Q5
-            int[] numbers = { 1, 3, 4, 3, 2, 5 };
-            bool hashdup= ContainsDuplicate(numbers);
-            Console.WriteLine(hashdup?"Array Contains Duplicates":"Array has only unique elments");
+            //int[] numbers = { 1, 3, 4, 3, 2, 5 };
+            //bool hashdup= ContainsDuplicate(numbers);
+            //Console.WriteLine(hashdup?"Array Contains Duplicates":"Array has only unique elments");
+            #endregion
+            #region Q6
+            SortedDictionary<int,string> students = new SortedDictionary<int,string>();
+            students.Add(122, "sama"); 
+            students.Add(123, "habiba"); 
+            students.Add(124, "salma"); 
+            students.Add(125, "zeiad"); 
+            students.Add(126, "mohamed");
+
+         
+            int searchid = 125;
+            if(students.TryGetValue(searchid,out string studentname))
+            {
+                Console.WriteLine($"\nYou Search for Student with ID {searchid}: {studentname}");
+            }
+            else
+            {
+                Console.WriteLine($"\nStudent ID {searchid} not found.");
+            }
+            int removeid = 126;
+            if (students.Remove(removeid, out studentname)) 
+            {
+                Console.WriteLine($"\nStudent ID {removeid} removed with name {studentname}.");
+            }
+
+            DisplayStudents(students);
             #endregion
         }
     }
