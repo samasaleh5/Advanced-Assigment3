@@ -39,7 +39,7 @@ namespace Advanced_Assigment3
         {
             List<int> missingNumbers = new List<int>();
 
-            
+
             HashSet<int> numbersSet = new HashSet<int>(array);
 
             for (int i = 1; i <= N; i++)
@@ -52,10 +52,23 @@ namespace Advanced_Assigment3
 
             return missingNumbers;
         }
-    
-    #endregion
-    static void Main(string[] args)
+
+        #endregion
+        #region SwapKeysAndValues
+        static Hashtable SwapKeysAndValues(Hashtable orginalhashtable)
+        {
+            Hashtable swapped = new Hashtable();
+
+            foreach (DictionaryEntry entry in orginalhashtable)
             {
+                swapped[entry.Value] = entry.Key;
+            }
+
+            return swapped;
+        }
+        #endregion
+        static void Main(string[] args)
+        {
             //Part02
             #region Q1
             //int[] array= { 1, 2, 3 ,2,1,5,1,3,2,5,5,5};
@@ -222,19 +235,35 @@ namespace Advanced_Assigment3
             //}
             #endregion
             #region Q9
-            List<int> numbers = new List<int> { 1, 2, 3, 3, 4, 5, 1, 6, 2, 7 };
+            //List<int> numbers = new List<int> { 1, 2, 3, 3, 4, 5, 1, 6, 2, 7 };
 
-            
-            HashSet<int> uniqueNumbers = new HashSet<int>(numbers);
 
-         
-            Console.WriteLine("Unique values:");
-            foreach (var num in uniqueNumbers)
+            //HashSet<int> uniqueNumbers = new HashSet<int>(numbers);
+
+
+            //Console.WriteLine("Unique values:");
+            //foreach (var num in uniqueNumbers)
+            //{
+            //    Console.WriteLine(num);
+            // }
+            #endregion
+            #region Q10
+            Hashtable orginalhashtable = new Hashtable()
+        {
+            {"a",1 },
+            {"b",2},
+            {"c",3},
+            {"d",4},
+            {"e",5}
+        };
+            Hashtable swappedhashtable = SwapKeysAndValues(orginalhashtable);
+            Console.WriteLine("Swapped Hashtable:");
+            foreach (DictionaryEntry entry in swappedhashtable)
             {
-                Console.WriteLine(num);
+                Console.WriteLine($"Key: {entry.Key}, Value: {entry.Value}");
             }
             #endregion
-
         }
     }
-    }
+}
+
