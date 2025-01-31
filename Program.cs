@@ -67,6 +67,21 @@ namespace Advanced_Assigment3
             return swapped;
         }
         #endregion
+        #region CountKeysStartingWith
+        static int CountKeysStartingWith(Dictionary<string, int> dictionary, char targetChar)
+        {
+            int count = 0;
+            foreach (var key in dictionary.Keys)
+            {
+                if (key.StartsWith(targetChar.ToString(), StringComparison.OrdinalIgnoreCase))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+        #endregion
         static void Main(string[] args)
         {
             //Part02
@@ -264,19 +279,41 @@ namespace Advanced_Assigment3
             //    }
             #endregion
             #region Q11
-            HashSet<int> set1 = new HashSet<int> { 1, 2, 3, 4 };
-            HashSet<int> set2 = new HashSet<int> { 3, 4, 5, 6 };
+            //HashSet<int> set1 = new HashSet<int> { 1, 2, 3, 4 };
+            //HashSet<int> set2 = new HashSet<int> { 3, 4, 5, 6 };
 
-            
-            HashSet<int> unionSet = new HashSet<int>(set1);
-            unionSet.UnionWith(set2);
+
+            //HashSet<int> unionSet = new HashSet<int>(set1);
+            //unionSet.UnionWith(set2);
+
+
+            //Console.WriteLine("Union of the two sets:");
+            //foreach (var item in unionSet)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Q12
+            Dictionary<string, int> dictionary = new Dictionary<string, int>
+        {
+            { "apple", 1 },
+            { "animal", 2 },
+            { "airport", 3 },
+            { "banana", 4 },
+            { "grape", 5 }
+        };
+
+         
+            Console.WriteLine("Enter target character:");
+            char targetChar = Console.ReadKey().KeyChar;
+            Console.WriteLine();
 
            
-            Console.WriteLine("Union of the two sets:");
-            foreach (var item in unionSet)
-            {
-                Console.WriteLine(item);
-            }
+            int count = CountKeysStartingWith(dictionary, targetChar);
+
+            
+            Console.WriteLine($"Number of keys starting with '{targetChar}': {count}");
+
             #endregion
         }
     }
